@@ -34,7 +34,15 @@
                     <td>{{ topTrack.name }}</td>
                     <td>{{ topTrack.album.name }}</td>
                     <td>
-                        <audio [src]="topTrack.preview_url" controls></audio>
+                        <!-- <audio [src]="topTrack.preview_url" controls></audio> -->
+                        <iframe 
+                            [src]="topTrack.uri | domseguro:'https://open.spotify.com/embed?uri='" 
+                            width="300" 
+                            height="80" 
+                            frameborder="0" 
+                            allowtransparency="true" 
+                            allow="encrypted-media">
+                        </iframe>
                     </td>
                 </tr>
             </tbody>
