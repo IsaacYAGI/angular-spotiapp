@@ -6,4 +6,6 @@
 
 <app-loading *ngIf="loading" class="m-5"></app-loading>
 
+<app-error-message *ngIf="error" [mensajeError]="mensajeError" (reintentar)="buscar(termino.value)"></app-error-message>
+
 <app-tarjetas *ngIf="!loading" [items]="artistas"></app-tarjetas>
