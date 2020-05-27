@@ -16,6 +16,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private spotifyService: SpotifyService
   ) { 
+    
+    this.callService();
+   
+  }
+
+  ngOnInit(): void {
+    
+  }
+
+  callService(){
     this.loading = true;
     this.error = false;
     this.spotifyService.getNewReleases()
@@ -27,11 +37,11 @@ export class HomeComponent implements OnInit {
       this.mensajeError = err.error.error.message;
       this.loading = false
     });
-   
   }
 
-  ngOnInit(): void {
-    
+  retryCall(){
+    //Regenerar token y volver a llamar a callService()
+    this.callService();
   }
 
 }
